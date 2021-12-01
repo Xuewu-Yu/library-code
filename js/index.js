@@ -427,3 +427,12 @@ export function isNumberStr(str) {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
 
+/**
+ * 数组根据对象属性去重
+ * @param {Array} arr
+ * @param {String} prototype
+ */
+ export function unique(arr,prototype){
+  const res = new Map();
+  return arr.filter((a) => !res.has(a[prototype]) && res.set(a[prototype], 1))
+}
